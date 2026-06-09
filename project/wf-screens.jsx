@@ -1,4 +1,4 @@
-// wf-screens.jsx — STRATUM App Wireframes
+// wf-screens.jsx — ASHVAA App Wireframes
 
 const WF = {
   bg:   '#0c0c0e',
@@ -23,7 +23,7 @@ const WF = {
 const Nav = ({ crumb }) => (
   <div style={{ height:52, background:WF.pan, borderBottom:`1px solid ${WF.brd}`,
     display:'flex', alignItems:'center', padding:'0 28px', flexShrink:0, fontFamily:WF.ff }}>
-    <span style={{ color:WF.gold, fontSize:16, fontWeight:700, letterSpacing:2, marginRight:32 }}>⬡ STRATUM</span>
+    <span style={{ color:WF.gold, fontSize:16, fontWeight:700, letterSpacing:2, marginRight:32 }}>⬡ ASHVAA</span>
     {['Repositories','Bounties','Docs'].map(l => (
       <span key={l} style={{ color:WF.mt, fontSize:14, marginRight:22 }}>{l}</span>
     ))}
@@ -282,7 +282,7 @@ const ApiContent = () => {
     "title": "JWT secret exposed",
     "agent_prompt": "You are a security engineer...",
     "fix_available": true,
-    "mcp_tool": "stratum_apply_fix"
+    "mcp_tool": "ashvaa_apply_fix"
   }]
 }`;
   return (
@@ -302,7 +302,7 @@ const ApiContent = () => {
         ))}
         <div style={{ marginTop:16, padding:'12px', background:WF.p2, border:`1px solid ${WF.brd2}` }}>
           <div style={{ fontSize:11, color:WF.gold, marginBottom:6 }}>⚡ MCP / TOOL SCHEMA</div>
-          <div style={{ fontSize:12, color:WF.mt, lineHeight:1.5 }}>Available as Claude MCP server. Agents can call <code style={{ color:WF.teal }}>stratum_scan</code> and <code style={{ color:WF.teal }}>stratum_apply_fix</code> directly.</div>
+          <div style={{ fontSize:12, color:WF.mt, lineHeight:1.5 }}>Available as Claude MCP server. Agents can call <code style={{ color:WF.teal }}>ashvaa_scan</code> and <code style={{ color:WF.teal }}>ashvaa_apply_fix</code> directly.</div>
         </div>
       </div>
       <div style={{ flex:1, padding:'20px', overflow:'hidden' }}>

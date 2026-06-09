@@ -1,5 +1,5 @@
-/* ═══════════ STRATUM EDITORIAL — Tweaks ═══════════ */
-function StratumTweaks(){
+/* ═══════════ ASHVAA EDITORIAL — Tweaks ═══════════ */
+function AshvaaTweaks(){
   const [t, setTweak] = useTweaks(/*EDITMODE-BEGIN*/{
     "accent": "#FF362E",
     "tickerSpeed": 60,
@@ -70,5 +70,5 @@ function StratumTweaks(){
 (function mount(){
   const root = document.getElementById('tweaks-root');
   if(!root || !window.useTweaks){ setTimeout(mount, 60); return; }
-  ReactDOM.createRoot(root).render(<StratumTweaks />);
+  ReactDOM.createRoot(root).render(<AshvaaTweaks />);
 })();

@@ -33,8 +33,14 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// Root redirect
+app.get('/', (req, res) => {
+  res.redirect('/ASHVAA%20Editorial.html');
+});
+
 // Start server
 app.listen(PORT, () => {
-  console.log(`STRATUM API running on http://localhost:${PORT}`);
-  console.log(`Frontend: http://localhost:${PORT}/STRATUM%20Editorial.html`);
+  console.log(`ASHVAA API running on http://localhost:${PORT}`);
+  console.log(`Landing Page: http://localhost:${PORT}/ASHVAA%20Editorial.html`);
+  console.log(`Login entry point: http://localhost:${PORT}/login.html`);
 });

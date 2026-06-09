@@ -1,4 +1,4 @@
-// STRATUM Frontend Application
+// ASHVAA Frontend Application
 // API client and UI rendering
 
 const API_BASE = 'http://localhost:3001/api';

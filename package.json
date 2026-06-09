@@ -1,5 +1,5 @@
 {
-  "name": "stratum",
+  "name": "ashvaa",
   "version": "1.0.0",
   "description": "AI-powered codebase analysis and architecture visualization",
   "main": "server/index.js",

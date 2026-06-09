@@ -1,4 +1,4 @@
-/* STRATUM — Issue Nº 14 · editorial.js
+/* ASHVAA — Issue Nº 14 · editorial.js
    Vanilla, no deps. Drives: scroll reveals, ticker, live board, intel-core
    counters, agent terminal, left-rail vine, countdown, small niceties. */
 (function () {
@@ -98,7 +98,7 @@
   (function () {
     var body = $('#tbody'); if (!body) return;
     var lines = [
-      '<span class="tp">$</span> <span class="tu">stratum query</span> --repo acme/payments --severity high+',
+      '<span class="tp">$</span> <span class="tu">ashvaa query</span> --repo acme/payments --severity high+',
       '<span class="tp">→ authenticating agent · session secured</span>',
       '<span class="tp">→ querying index · 84,201 repos · 12,847 findings / 24h</span>',
       '<div class="tblk"><span class="ta">⚠ 3 findings</span> matched in acme/payments<br>' +
@@ -107,7 +107,7 @@
         '&nbsp;• CWE-798 hardcoded key&nbsp;· src/lib/stripe.ts:12&nbsp;· conf 0.99</div>',
       '<span class="tf">✓ map returned · routing to fixer agent</span>',
       '<span class="tp">→ patch PRs drafted · awaiting human review</span>',
-      '<span class="tu">stratum ❯ </span><span class="cur"></span>'
+      '<span class="tu">ashvaa ❯ </span><span class="cur"></span>'
     ];
     var started = false;
     function run() {
