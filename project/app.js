@@ -342,6 +342,7 @@ const dashboard = {
 
         this.render();
         this.startPolling(result.repoId, result.jobId);
+        this.showToast('Scan started — analysis takes a few minutes. The card will update automatically when complete.', 'info', 8000);
       }
     } catch (error) {
       this.showFormError(error.message);
@@ -467,7 +468,7 @@ const dashboard = {
     this.showToast(message, 'error');
   },
 
-  showToast(message, type = 'info') {
+  showToast(message, type = 'info', duration = 4000) {
     // Remove existing toast
     const existing = document.querySelector('.toast');
     if (existing) existing.remove();
@@ -481,12 +482,11 @@ const dashboard = {
 
     document.body.appendChild(toast);
 
-    // Auto-hide after 4 seconds
     setTimeout(() => toast.classList.add('show'), 10);
     setTimeout(() => {
       toast.classList.remove('show');
       setTimeout(() => toast.remove(), 300);
-    }, 4000);
+    }, duration);
 
     // Close button
     toast.querySelector('.toast-close').addEventListener('click', () => {

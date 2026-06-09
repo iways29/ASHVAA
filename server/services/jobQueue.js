@@ -14,6 +14,17 @@ let jobs = {};
 try {
   const data = fs.readFileSync(JOBS_FILE, 'utf-8');
   jobs = JSON.parse(data);
+  // Any in-flight jobs from a previous run can't resume — mark them failed
+  const inFlight = ['queued', 'fetching', 'analyzing', 'enriching'];
+  for (const job of Object.values(jobs)) {
+    if (inFlight.includes(job.status)) {
+      job.status = 'failed';
+      job.error = 'Server restarted while job was in progress. Please retry.';
+      job.message = 'Failed: server restarted';
+      job.updatedAt = new Date().toISOString();
+    }
+  }
+  fs.writeFileSync(JOBS_FILE, JSON.stringify(jobs, null, 2));
 } catch (e) {
   jobs = {};
 }
