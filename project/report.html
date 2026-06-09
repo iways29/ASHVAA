@@ -428,6 +428,29 @@
       </div>
     </header>
 
+    <!-- Scan in progress banner (shown when status is not complete) -->
+    <div id="scanningBanner" style="display:none; background: rgba(78,161,255,0.07); border-bottom: 1px solid rgba(78,161,255,0.2); padding: 10px 0;">
+      <div class="wrap" style="display:flex; align-items:center; gap:12px;">
+        <div class="spinner" style="width:14px;height:14px;border-width:2px;flex-shrink:0;"></div>
+        <p style="font-family:var(--mono); font-size:12px; color:var(--mut); margin:0;">
+          <strong style="color:#4EA1FF;">Scan in progress</strong> — analysis can take a few minutes depending on repo size. Come back shortly and refresh to see the full graph.
+        </p>
+      </div>
+    </div>
+
+    <!-- Limitations banner -->
+    <div style="background: rgba(255,54,46,0.05); border-bottom: 1px solid rgba(255,54,46,0.15); padding: 10px 0;">
+      <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <p style="font-family:var(--mono); font-size:12px; color:var(--mut); margin:0;">
+          <strong style="color:var(--acc);">Heads up</strong> — the dependency graph only resolves
+          <strong style="color:var(--ink);">JS/TS/Python</strong> files with static imports.
+          Dynamic <code style="background:var(--bg2);padding:1px 4px;border-radius:3px;">require(variable)</code>,
+          non-JS languages, and files skipped due to token limits will not show connections.
+        </p>
+        <button onclick="this.parentElement.parentElement.style.display='none'" style="background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--faint);padding:2px 6px;flex-shrink:0;">dismiss</button>
+      </div>
+    </div>
+
     <!-- Main Layout -->
     <div class="report-layout">
       <!-- Left Sidebar -->

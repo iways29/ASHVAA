@@ -575,6 +575,14 @@ const report = {
 
   async loadAnalysis() {
     try {
+      // Check repo status first to show scanning banner
+      const repos = await api.getRepos();
+      const repo = repos.find(r => r.id === this.repoId);
+      const scanningBanner = document.getElementById('scanningBanner');
+      if (scanningBanner && repo && !['complete', 'failed'].includes(repo.status)) {
+        scanningBanner.style.display = 'block';
+      }
+
       this.analysis = await api.getEnrichedAnalysis(this.repoId);
       this.renderHeader();
       this.renderSidebar();

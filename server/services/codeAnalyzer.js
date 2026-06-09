@@ -231,9 +231,21 @@ function parseFile(content, filePath) {
         }
       },
 
-      // Track external API calls (fetch, axios, etc.)
+      // Track external API calls (fetch, axios, etc.) and CommonJS require()
       CallExpression(path) {
         const callee = path.node.callee;
+
+        // CommonJS require()
+        if (
+          callee.type === 'Identifier' &&
+          callee.name === 'require' &&
+          path.node.arguments.length > 0 &&
+          path.node.arguments[0].type === 'StringLiteral'
+        ) {
+          const source = path.node.arguments[0].value;
+          result.imports.push({ source, specifiers: [], line: path.node.loc?.start.line });
+        }
+
         if (callee.type === 'Identifier') {
           if (['fetch', 'axios'].includes(callee.name)) {
             result.apiCalls.push({
